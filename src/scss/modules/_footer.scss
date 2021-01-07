@@ -1,0 +1,55 @@
+.footer {
+  padding: 45px 0;
+  background-color: $color-footer;
+  margin-top: 80px;
+
+  @include pc {
+    margin-top: 160px;
+  }
+
+  &__wrapper {
+    max-width: 165px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__listFrame {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__listItem {
+    a[target="_blank"]:after {
+      content: none;
+    }
+  }
+
+  &__snsLink {
+    display: block;
+    width: 28px;
+    height: 28px;
+    transition: 0.5s;
+
+    &--twitter {
+      background: url(#{$imgDir}twitter.svg) center / contain no-repeat;
+    }
+    &--instagram {
+      background: url(#{$imgDir}insta.svg) center / contain no-repeat;
+    }
+    &--note {
+      background: url(#{$imgDir}note.svg) center / contain no-repeat;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__copyright {
+    margin-top: 40px;
+    text-align: center;
+    color: $color-white;
+    font-weight: 300;
+  }
+}

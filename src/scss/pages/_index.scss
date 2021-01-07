@@ -1,0 +1,1321 @@
+.loading {
+  background-color: $color-white;
+  position: fixed;
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOut 0.8s ease 2.5s forwards;
+
+  &__text {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 5.8vw;
+    color: $color-text;
+    letter-spacing: 0.25em;
+    line-height: 2;
+    overflow: hidden;
+    transition: 0.4s;
+    padding: 8px 12px;
+
+    &.active {
+      color: #fff;
+      &::before {
+        content: "";
+        display: block;
+        @include position(abs, 0, n, n, 0);
+        z-index: -5;
+        width: 0;
+        height: 100%;
+        background-color: $color-main;
+        animation: loading 1.5s ease forwards;
+      }
+    }
+
+    @include pc {
+      & br {
+        display: none;
+      }
+      font-size: 40px;
+    }
+  }
+}
+
+.mainVisual {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 74.9%;
+    height: 83.1vh;
+    background-color: #333;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    background: url(#{$imgDir}mainVisual_sp.jpg) no-repeat;
+    background-size: cover;
+
+    @include pc {
+      width: 65.1%;
+      height: 71.2vh;
+      background: url(#{$imgDir}mainVisual@2x.jpg) no-repeat;
+      background-position: bottom;
+      background-size: cover;
+    }
+  }
+
+  .INNER {
+    height: 100%;
+    width: calc(100% - 32px * 2);
+    max-width: initial;
+
+    @include pc {
+      width: calc(100% - 175px * 2);
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    bottom: 165px;
+    z-index: 5;
+  }
+
+  &__background {
+    position: absolute;
+    bottom: 0;
+    width: 50.3%;
+    background-color: $color-main;
+    height: 100vh;
+
+    @include pc {
+      max-width: 1250px;
+      width: 65.1%;
+      max-height: 745px;
+      height: 69vh;
+    }
+  }
+
+  &__mainCopy {
+    font-size: 12.8vw;
+    color: #fff;
+    line-height: 1.38;
+    letter-spacing: 0.069em;
+    font-family: "Noto Serif JP", "sas-serif";
+
+    @include pc {
+      font-size: 7.2vw;
+    }
+  }
+
+  &__subCopy {
+    font-size: 9.1vw;
+    letter-spacing: 0.475em;
+    color: $color-white;
+    font-weight: 300;
+
+    @include pc {
+      font-size: 4.2vw;
+      letter-spacing: 0.7em;
+    }
+  }
+
+  &__text {
+    font-size: 9.1vw;
+    display: inline-block;
+    font-family: "Noto Serif JP", "san-serif";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    line-height: 1.44;
+    color: $color-text;
+
+    @include pc {
+      font-size: 4.4vw;
+      transform: translateX(135px);
+    }
+
+    &::before {
+      content: "";
+      @include center;
+      display: block;
+      background: url(#{$imgDir}check.svg) no-repeat;
+      background-size: contain;
+      width: 12px;
+      height: 12px;
+      margin-top: 4px;
+
+      @include pc {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+
+  &__scroll {
+    position: absolute;
+    bottom: 0;
+    left: 32px;
+    width: 1px;
+    height: 94px;
+    background-color: #fff;
+
+    @include pc {
+      right: 32px;
+      left: initial;
+      height: 110px;
+    }
+
+    &::before {
+      @include pc {
+        content: "SCROLL";
+        writing-mode: vertical-lr;
+        position: absolute;
+        bottom: 120px;
+        color: #fff;
+        left: 50%;
+        transform: translateX(-50%);
+        letter-spacing: 0.35em;
+        font-weight: 300;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 8px;
+      transform: translateX(-50%);
+      background-color: $color-main;
+      animation: scroll 1.5s ease-in-out infinite backwards;
+    }
+  }
+}
+
+// WORKS
+.works {
+  padding: 160px 0 0 0;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    font-family: "Noto Serif JP", "san-serif";
+    font-size: 38.4vw;
+    position: absolute;
+    z-index: -5;
+    top: 19%;
+    right: -97.3vw;
+    display: block;
+    content: "WORKS";
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    letter-spacing: 0.35em;
+    opacity: 0.05;
+    color: $color-text;
+
+    @include pc {
+      font-size: 288px;
+      top: 50%;
+      right: -724px;
+      color: $color-text;
+      z-index: -5;
+    }
+  }
+
+  @include pc {
+    padding: 288px 0 0 0;
+  }
+
+  .TITLE {
+    &::after {
+      content: "";
+      display: block;
+      font-size: 288px;
+      letter-spacing: 0.35em;
+      @include position(abs, 37%, -730px, n, n);
+      font-family: "Noto Serif JP", "san-serif";
+      transform: rotate(90deg);
+      opacity: 0.03;
+      color: #000;
+      margin-top: 160px;
+    }
+    @include tab {
+      font-size: 22px;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+
+    @include pc {
+      margin-top: 160px;
+    }
+  }
+
+  &__image {
+    height: 55vw;
+    object-fit: cover;
+
+    @include pc {
+      max-width: 744px;
+      display: block;
+      width: 38.8vw;
+      height: 21.1vw;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+
+    @include pc {
+      margin-right: 120px;
+      align-self: flex-end;
+    }
+
+    &--second {
+      display: flex;
+      flex-direction: column;
+
+      @include pc {
+        flex-direction: row;
+        margin-top: 240px;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    color: $color-text;
+    @include hidden;
+    transform: translateY(10%);
+
+    &--first {
+      transform: translateX(10%);
+    }
+
+    &--second {
+      transform: translateX(-10%);
+    }
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @include pc {
+      flex-direction: row-reverse;
+      max-width: 1380px;
+      // width: 71.9vw;
+      margin-left: auto;
+    }
+
+    &--second {
+      margin-top: 80px;
+      @include pc {
+        margin-right: auto;
+        flex-direction: initial;
+        margin-left: initial;
+        margin-top: 240px;
+      }
+
+      .works__box {
+        @include pc {
+          margin-left: 120px;
+          margin-right: 0;
+        }
+      }
+    }
+
+    &--child {
+      display: flex;
+      margin-top: 80px;
+
+      @include pc {
+        margin-top: 0;
+        flex-direction: column;
+        margin-left: initial;
+        width: 100%;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        &:not(:first-of-type) {
+          margin-left: 5.7vw;
+        }
+      }
+
+      .works__image {
+        @include pc {
+          // width: 23.4vw;
+          width: 100%;
+          // max-width: 450px;
+          height: 15.6vw;
+          min-height: initial;
+        }
+      }
+
+      .works__title {
+        &::after {
+          display: none;
+        }
+        @include tab {
+          font-size: 18px;
+          margin-top: 24px;
+        }
+      }
+
+      .works__listFrame {
+        margin-top: 16px;
+
+        @include pc {
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: 4.8vw;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 300;
+    margin-top: 40px;
+
+    @include tab {
+      font-size: 36px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $color-accent;
+      margin: 16px 0;
+      width: 10.1vw;
+      height: 1px;
+
+      @include pc {
+        width: 40px;
+      }
+    }
+  }
+
+  &__listFrame {
+    display: flex;
+  }
+
+  &__listItem {
+    width: 100%;
+  }
+
+  &__category {
+    font-size: 3.2vw;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-sub;
+    color: $color-white;
+    min-height: 20px;
+    width: 22.9vw;
+    height: 5.3vw;
+
+    &:not(:first-of-type) {
+      margin-left: 16px;
+    }
+
+    @include pc {
+      font-size: 14px;
+      max-width: 68px;
+      height: 25px;
+    }
+  }
+
+  &__caption {
+    font-size: 3.7vw;
+    line-height: 1.5;
+    margin-top: 16px;
+    font-weight: 300;
+
+    @include tab {
+      font-size: 16px;
+    }
+  }
+  .BUTTON {
+    margin-top: 32px;
+    @include pc {
+      margin-top: 56px;
+    }
+  }
+}
+// WORKSここまで
+
+// profile
+.profile {
+  padding: 160px 0 0 0;
+
+  @include pc {
+    padding: 288px 0 0 0;
+  }
+  .TITLE {
+    align-items: flex-start;
+  }
+
+  &__wrapper {
+    margin-top: 56px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.6s;
+    transform: translateX(10%);
+
+    &::before {
+      content: "";
+      display: block;
+      background: url(#{$imgDir}profile.jpg) center center / cover no-repeat;
+      width: calc(100% + 32px);
+      height: 64vw;
+
+      @include pc {
+        width: 38.5vw;
+        height: 25.5vw;
+        margin-left: auto;
+      }
+    }
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  &__card {
+    padding: 38px 32px;
+    transform: translate(-35px, -32px);
+    @include cardFound;
+
+    @include pc {
+      padding: 36px 50px;
+      max-width: 600px;
+      margin: 0 34.9vw 0 auto;
+      transform: translateY(-180px);
+    }
+  }
+  &__name {
+    font-size: 4.8vw;
+    font-weight: 400;
+
+    @include tab {
+      font-size: 28px;
+    }
+
+    &--en {
+      font-size: 3.2vw;
+      margin-left: 12px;
+      color: $color-accent;
+      @include tab {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__job,
+  &__age,
+  &__text {
+    font-size: 3.2vw;
+    @include tab {
+      font-size: 18px;
+    }
+  }
+
+  &__job {
+    @include pc {
+      margin-top: 32px;
+    }
+  }
+
+  &__text {
+    margin-top: 24px;
+    font-weight: 300;
+    @include tab {
+      font-size: 20px;
+    }
+    @include pc {
+      margin-top: 32px;
+    }
+  }
+
+  &__job {
+    margin-top: 16px;
+  }
+
+  &__age {
+    margin-top: 8px;
+
+    @include pc {
+      margin-top: 12px;
+    }
+  }
+
+  .BUTTON {
+    margin-top: 32px;
+
+    @include pc {
+      height: 77px;
+      margin-top: 48px;
+    }
+  }
+}
+// profileここまで
+
+// SKILL
+.skill {
+  position: relative;
+
+  @include pc {
+    padding: 0 0 160px 0;
+  }
+
+  &::before {
+    @include pc {
+      content: "";
+      display: block;
+      @include position(abs, 0, n, n, 0);
+      background: $color-bgGray;
+      width: 100vw;
+      height: 100%;
+      transform: translateY(50px);
+    }
+  }
+
+  &::after {
+    content: "SKILL";
+    display: block;
+    font-size: 288px;
+    color: $color-white;
+    letter-spacing: 0.35em;
+    @include position(abs, 30%, -600px, n, n);
+    z-index: 0;
+    font-family: "Noto Serif JP", "san-serif";
+    transform: rotate(90deg);
+  }
+
+  .TITLE {
+    font-family: "Noto Serif JP", "sans-serif";
+    letter-spacing: 0.35em;
+    margin-right: -0.35em;
+    font-size: 9.6vw;
+
+    @include pc {
+      font-size: 64px;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__description {
+    font-size: 3.48vw;
+    margin-top: 24px;
+
+    &--deco {
+      display: block;
+      font-weight: 300;
+      font-size: $fz-12;
+      margin-top: 8px;
+
+      @include tab {
+        font-size: 16px;
+        margin-top: 12px;
+      }
+    }
+
+    @include tab {
+      text-align: center;
+      font-size: 22px;
+    }
+
+    @include pc {
+      margin-top: 40px;
+    }
+  }
+
+  &__box {
+    &--second {
+      margin-top: 56px;
+
+      @include pc {
+        display: grid;
+        grid-template-areas:
+          "css css js"
+          "wp git psd";
+        row-gap: 56px;
+        column-gap: 44px;
+        margin-top: 80px;
+      }
+
+      .skill__card:not(:first-of-type) {
+        margin-top: 40px;
+
+        @include pc {
+          margin-top: initial;
+        }
+      }
+
+      .skill__card {
+        @include pc {
+          max-width: 370px;
+        }
+
+        &--wide {
+          @include pc {
+            max-width: 784px;
+          }
+        }
+      }
+    }
+
+    &--third {
+      margin-top: 56px;
+
+      @include pc {
+        display: flex;
+      }
+    }
+  }
+
+  &__listFrame {
+    @include se {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    margin: 56px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    row-gap: 40px;
+    column-gap: 32px;
+    justify-content: space-between;
+    max-width: 517px;
+
+    @include pc {
+      grid-template-columns: repeat(3, 135px);
+      gap: 56px;
+      margin: 80px auto 0;
+    }
+
+    &.active {
+      .skill__listItem {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+
+        //順番ごとに出現を遅らせる
+        @for $i from 1 through 12 {
+          $time: 0.15s;
+          &:nth-of-type(#{$i}) {
+            transition-delay: $time * $i;
+          }
+        }
+      }
+    }
+  }
+
+  &__listItem {
+    height: 65px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    @include cardFound;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    @include hidden;
+    transform: scale(0.5);
+
+    @include pc {
+      height: 108px;
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
+      background-color: $color-bgGray;
+    }
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    position: relative;
+    z-index: 10;
+
+    &::before {
+      content: attr(data-txt);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      @include position(abs, 0, n, n, 0);
+      background-color: rgba(0, 0, 0, 0.65);
+      color: $color-white;
+      transform: translateX(-100%);
+      transition: 0.4s;
+      font-size: $fz-14;
+
+      @include tab {
+        font-size: 16px;
+      }
+    }
+
+    &:hover {
+      &::before {
+        transform: translate(0);
+      }
+    }
+  }
+
+  &__icon {
+    &--html {
+      @include pc {
+        width: 55px;
+      }
+    }
+
+    &--css {
+      @include pc {
+        width: 55px;
+      }
+    }
+
+    &--scss {
+      @include pc {
+        width: 83px;
+      }
+    }
+
+    &--js {
+      @include pc {
+        width: 55px;
+      }
+    }
+
+    &--jq {
+      @include pc {
+        width: 50px;
+      }
+    }
+
+    &--gulp {
+      @include pc {
+        width: 25px;
+      }
+    }
+
+    &--wp {
+      @include pc {
+        width: 58px;
+      }
+    }
+
+    &--php {
+      @include pc {
+        width: 78px;
+      }
+    }
+
+    &--git {
+      @include pc {
+        width: 58px;
+      }
+    }
+
+    &--psd {
+      @include pc {
+        width: 58px;
+      }
+    }
+
+    &--xd {
+      @include pc {
+        width: 58px;
+      }
+    }
+
+    &--figma {
+      width: 22px;
+      @include pc {
+        width: 37px;
+      }
+    }
+  }
+
+  &__card {
+    padding: 24px;
+    @include cardFound;
+    position: relative;
+
+    @include pc {
+      padding: 40px;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      opacity: 0.05;
+      bottom: 16px;
+      left: 16px;
+
+      @include pc {
+        bottom: 24px;
+        left: 24px;
+      }
+    }
+
+    &.active {
+      .skill__name--first {
+        position: relative;
+        z-index: 5;
+        &::before {
+          content: "";
+          display: block;
+          @include position(abs, 0, n, n, 0);
+          background-color: $color-accent;
+          width: 100%;
+          height: 100%;
+          z-index: -5;
+          animation: name 1.5s ease-in-out backwards;
+        }
+      }
+    }
+
+    &--css {
+      grid-area: css;
+      &::before {
+        width: 44px;
+        height: 50px;
+        background: url(#{$imgDir}css.svg) center center / contain no-repeat;
+
+        @include pc {
+          left: initial;
+          right: 180px;
+          width: 83px;
+          height: 95px;
+        }
+      }
+
+      &::after {
+        left: 80px;
+        width: 67px;
+        height: 50px;
+        background: url(#{$imgDir}scss.svg) center center / contain no-repeat;
+
+        @include pc {
+          left: initial;
+          right: 24px;
+          width: 125px;
+          height: 95px;
+        }
+      }
+    }
+
+    &--js,
+    &--wp,
+    &--psd,
+    &--git {
+      &::before {
+        width: 60px;
+        height: 60px;
+        @include pc {
+          width: 95px;
+          height: 95px;
+        }
+      }
+    }
+
+    &--js {
+      grid-area: js;
+      &::before {
+        background: url(#{$imgDir}javascript.svg) center center / contain no-repeat;
+      }
+    }
+
+    &--wp {
+      grid-area: wp;
+      &::before {
+        background: url(#{$imgDir}wordpress.svg) center center / contain no-repeat;
+      }
+    }
+
+    &--psd {
+      grid-area: psd;
+      &::before {
+        background: url(#{$imgDir}psd.svg) center center / contain no-repeat;
+      }
+    }
+
+    &--git {
+      grid-area: git;
+      &::before {
+        background: url(#{$imgDir}github.svg) center center / contain no-repeat;
+      }
+    }
+
+    &--design {
+      margin: 56px 0 5px 0;
+      @include pc {
+        margin: 0 0 0 56px;
+      }
+    }
+  }
+
+  &__name {
+    &--first {
+      font-size: $fz-16;
+      min-height: 40px;
+      padding: 0 24px;
+      display: inline-flex;
+      align-items: center;
+      background-color: $color-main;
+      color: $color-white;
+      font-weight: 400;
+
+      @include tab {
+        font-size: 18px;
+      }
+    }
+
+    &--second {
+      font-size: $fz-16;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      margin-top: 24px;
+
+      @include tab {
+        font-size: 20px;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        margin-right: 8px;
+        width: 3px;
+        height: 18px;
+        background-color: $color-accent;
+      }
+    }
+
+    &--child {
+      font-size: $fz-16;
+      font-weight: 800;
+      margin-top: 16px;
+
+      @include tab {
+        font-size: 18px;
+      }
+
+      // @include pc {
+      //   margin-top: 16px;
+      // }
+
+      &:nth-of-type(2) {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  &__caption {
+    font-size: $fz-14;
+    line-height: 2;
+    font-weight: 300;
+    margin-top: 16px;
+
+    @include tab {
+      font-size: 16px;
+    }
+  }
+}
+// SKILL ここまで
+
+// BLOG
+.blog {
+  padding: 120px 0 0 0;
+  position: relative;
+  overflow: hidden;
+
+  @include pc {
+    padding: 288px 0 0 0;
+  }
+
+  // BLOG背景色
+  // &__wrapper {
+  //   &::before {
+  //     @include pc {
+  //       content: "";
+  //       @include position(abs, 0, n, n, 0);
+  //       width: 100vw;
+  //       height: 100%;
+  //       background-color: $color-bgGray;
+  //       z-index: -10;
+  //       @include full-width;
+  //       top: 50%;
+  //     }
+  //   }
+  // }
+
+  &__wrapper {
+    @include hidden;
+    transform: translateY(10%);
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__link {
+    height: 49.3vw;
+    display: block;
+    position: relative;
+    padding: 22px 25px;
+    transition: 0.5s;
+
+    @include pc {
+      max-height: 520px;
+      padding: 60px 70px;
+    }
+
+    &::before {
+      position: relative;
+      content: "";
+      display: block;
+      @include position(abs, 0, n, n, 0);
+      z-index: -5;
+      width: 100%;
+      height: 100%;
+      background: url(#{$imgDir}blog-image.jpg) center / cover no-repeat;
+    }
+
+    &::after {
+      position: relative;
+      content: "";
+      display: block;
+      @include position(abs, 0, n, n, 0);
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      z-index: -4;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .TITLE {
+    color: $color-white;
+    font-size: 8.5vw;
+    font-family: "Noto Serif JP", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.35em;
+    margin-right: -0.35em;
+    margin-top: -18px;
+
+    @include tab {
+      font-size: 64px;
+      margin-top: 0px;
+    }
+  }
+
+  &__copy {
+    @include pc {
+      color: $color-white;
+      font-size: 22px;
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+
+      &::before,
+      &:after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 35px;
+        background-color: $color-white;
+      }
+
+      &::before {
+        margin-right: 12px;
+        transform: rotate(-17deg);
+      }
+
+      &::after {
+        margin-left: 12px;
+        transform: rotate(17deg);
+      }
+
+      &.SP--none {
+        display: flex !important;
+      }
+    }
+  }
+
+  &__caution {
+    color: $color-white;
+    margin-top: 12px;
+    font-size: 3.2vw;
+    font-weight: 300;
+  }
+
+  &__box {
+    position: relative;
+    &--first {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $color-white;
+      @include position();
+    }
+
+    &--second {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-top: 56px;
+
+      iframe {
+        vertical-align: bottom;
+      }
+
+      @include pc {
+        margin-top: 80px;
+      }
+    }
+  }
+
+  &__text {
+    @include position(abs, n, 12px, 12px, n);
+    display: flex;
+    align-items: center;
+    color: $color-white;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 300;
+
+    @include pc {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      font-size: 24px;
+      align-items: flex-start;
+      @include position(abs, n, 36px, 36px, n);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background: url(#{$imgDir}arrow_right-white.svg) center / contain no-repeat;
+      width: 25px;
+      height: 4px;
+      margin-left: 10px;
+
+      @include pc {
+        display: none;
+      }
+    }
+
+    .blog__caution {
+      @include pc {
+        font-size: 12px;
+
+        &.SP--none {
+          display: flex !important;
+          align-items: center;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          background: url(#{$imgDir}arrow_right-white.svg) center / contain no-repeat;
+          width: 68px;
+          height: 10px;
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}
+// BLOG ここまで
+
+// CONTACT
+.contact {
+  padding: 120px 0 0 0;
+  position: relative;
+  // z-index: -5;
+
+  @include pc {
+    padding: 160px 0 0 0;
+  }
+
+  .TITLE {
+    display: flex;
+    flex-direction: column;
+    font-size: $fz-14;
+
+    @include tab {
+      font-size: 22px;
+    }
+  }
+
+  &__border {
+    display: block;
+    margin: 16px auto;
+    width: 1px;
+    height: 40px;
+    background-color: $color-accent;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      @include position(abs, 0, n, n, 0);
+      width: 1px;
+      height: 5px;
+      background-color: $color-main;
+      animation: scroll-border 1.5s ease-in-out infinite backwards;
+
+      @include pc {
+        width: 3px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 20px;
+      }
+    }
+
+    @include pc {
+      height: 135px;
+      margin: 40px auto;
+      width: 2px;
+    }
+  }
+}
+// CONTACT ここまで

@@ -1,0 +1,29 @@
+<% description = 'ディスクリプション'; %>
+<% FontAwesome = 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'; %>
+<% jQCDN = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"; %>
+<% pathCss = 'dist/css/style.css'; %>
+<% pathJs = 'dist/js/script.min.js'; %>
+<% vivusJs = 'dist/js/vivus.min.js'; %>
+
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+	<html lang="ja" class="no-js lt-ie9" prefix="og: http://ogp.me/ns#">
+	<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="ja" class="no-js" prefix="og: http://ogp.me/ns#">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>" />
+    <meta name="keywords" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=10,initial-scale=1.0" />
+    <meta property="base_url" content="./" id="base_url" />
+    <!--    CDN FontAwesome-->
+    <link href="<%= FontAwesome %>" rel="stylesheet" />
+    <link rel="stylesheet" href="<%= pathCss %>" />
+
+  </head>
+</html>

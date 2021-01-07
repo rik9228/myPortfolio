@@ -1,0 +1,142 @@
+// コンポーネント化できるものを記述
+
+// 使用方法：任意のセレクタに
+// @include sp{
+//     width:300px;
+// }
+// のように記述。
+
+$se: 320px;
+$tab: 560px;
+$pc: 960px;
+
+@mixin se {
+  @media (max-width: ($se)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+// コンパイル時のメディアクエリ表示順を調整（小さいデバイスサイズ順）
+@include se {
+  /* base-size */
+}
+@include tab {
+  /* Wider than s-size */
+}
+@include pc {
+  /* Wider than m-size */
+}
+
+//画像格納ディレクトリ
+$imgDir: "../img/";
+
+// color変数定義
+$color-main: #073061;
+$color-accent: #fda14b;
+$color-sub: #c1c1c1;
+$color-footer: #001139;
+$color-white: #fff;
+$color-text: #3d3d3d;
+$color-contactFree: #707070;
+$color-bgGray: #f9f9f9;
+$color-border:#eaeaea;
+
+// SP font-size
+$fz-12: 3.2vw;
+$fz-14: 3.8vw;
+$fz-16: 4.3vw;
+$fz-18: 4.8vw;
+$fz-Xlarge: 4.8vw;
+$fz-title: 7vw;
+$fz-subTitle: 5.4vw;
+
+// アニメーション設定
+@keyframes scroll {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 92%;
+  }
+}
+@keyframes scroll-border {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 85%;
+    opacity: 0.5;
+  }
+}
+
+@keyframes name {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes career {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// フォント設定
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&family=Noto+Serif+JP:wght@700&display=swap");
+
+// font-family: 'Noto Sans JP', sans-serif;
+// font-family: 'Noto Serif JP', serif;

@@ -1,0 +1,142 @@
+// about
+
+.contact {
+  &__text {
+    font-size: $fz-14;
+    font-weight: 300;
+    line-height: 2;
+    margin-top: 56px;
+    text-align: center;
+
+    @include tab {
+      font-size: 16px;
+    }
+  }
+}
+
+// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ contactform7専用 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+.wpcf7 {
+  margin-top: 56px;
+
+  @include pc {
+    margin-top: 80px;
+  }
+
+  p:not(:first-of-type) {
+    margin-top: 32px;
+    @include pc {
+      margin-top: 40px;
+    }
+  }
+
+  p:nth-of-type(4) {
+    @include pc {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  p:last-of-type {
+    margin-top: 0;
+  }
+}
+
+.must,
+.free {
+  color: $color-white;
+  padding: 6px 10px;
+  display: inline-flex;
+  font-size: 12px;
+}
+
+/* 必須マーク */
+.must {
+  margin-right: 16px;
+  background: $color-accent;
+}
+
+/* 任意マーク */
+.free {
+  margin-right: 16px;
+  background: $color-contactFree;
+}
+
+/* 項目名を太字にする */
+form p {
+  font-weight: 400;
+  font-size: 14px;
+
+  @include pc {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.wpcf7-form-control-wrap {
+  @include pc {
+    max-width: 525px;
+    width: 100%;
+    margin-left: auto;
+    display: block;
+  }
+}
+
+/* 入力項目を見やすくする */
+input.wpcf7-form-control.wpcf7-text,
+textarea.wpcf7-form-control.wpcf7-textarea {
+  width: 100%;
+  padding: 0.85em 0.75em;
+  margin-top: 10px;
+  border: 1px solid #d0d5d8;
+  border-radius: 3px;
+  font-size: 16px;
+
+  @include pc {
+    margin-top: 0px;
+  }
+}
+
+textarea.wpcf7-form-control.wpcf7-textarea {
+  height: 200px;
+  background: rgba(255, 255, 142, 0.46);
+}
+
+/* 必須項目の入力欄を黄色にする */
+input.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
+  background: rgba(255, 255, 142, 0.46);
+}
+
+/* 送信ボタンを見やすくする */
+input.wpcf7-submit {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 60px;
+  display: inline-flex;
+  justify-content: center;
+  background: $color-main;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  max-width: initial;
+  max-width: auto;
+  border: none;
+  margin-top: 80px;
+  cursor: pointer;
+
+  @include pc {
+    max-width: 311px;
+  }
+}
+
+/* エラーメッセージを見やすくする */
+span.wpcf7-not-valid-tip,
+.wpcf7-response-output.wpcf7-validation-errors {
+  color: red;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+div.wpcf7 .ajax-loader {
+  display: none !important;
+}

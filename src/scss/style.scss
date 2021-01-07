@@ -1,0 +1,29 @@
+// 分割ファイルの記載
+// 別途ファイル名は_functions.scssのように文頭に"_"を記載。
+
+// base.reset
+@import "./base/reset";
+@import "./base/base";
+
+//mixin
+@import "./mixin/mixin";
+
+// config
+@import "./setting/config";
+@import "./setting/functions";
+// @import "./setting/slick";
+// @import "./setting/slick-theme";
+
+// modules
+@import "./modules/common";
+@import "./modules/header";
+@import "./modules/gnav";
+@import "./modules/fnav";
+@import "./modules/footer";
+
+// pages
+@import "./pages/index";
+@import "./pages/profile";
+@import "./pages/single";
+@import "./pages/contact";
+@import "./pages/thanks";

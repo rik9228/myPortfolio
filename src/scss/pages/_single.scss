@@ -1,0 +1,188 @@
+.single {
+  &__title {
+    @extend .TITLE;
+    font-size: 6vw;
+
+    @include tab {
+      font-size: 48px;
+    }
+  }
+  &__wrapper {
+    margin-top: 56px;
+  }
+
+  &__image {
+    // margin-top: 56px;
+    overflow: hidden;
+
+    & img {
+      transform: scale(1.3);
+      @include pc {
+        transform: scale(1);
+        // margin-top: 120px;
+      }
+    }
+  }
+
+  &__listFrame {
+    margin-top: 40px;
+
+    &--first {
+      .single__listItem {
+        display: flex;
+        flex-direction: column;
+
+        @include pc {
+          flex-direction: row;
+        }
+
+        &:nth-of-type(2) {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+
+  &__listItem {
+    font-size: $fz-14;
+    font-weight: 300;
+    line-height: 1.5;
+
+    &--content {
+      margin-top: 32px;
+    }
+
+    @include tab {
+      font-size: 16px;
+    }
+
+    &--deco {
+      display: flex;
+      flex-direction: column;
+      padding: 1.25em 0;
+      border-top: 1px solid $color-border;
+
+      &:last-of-type {
+        border-bottom: 1px solid $color-border;
+      }
+
+      @include pc {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      & strong {
+        flex-basis: 20%;
+      }
+    }
+  }
+
+  &__text,
+  &__link {
+    display: block;
+  }
+
+  &__link {
+    &::before {
+      content: "";
+      @include pc {
+        content: "：";
+      }
+    }
+  }
+
+  &__text {
+    &--deco {
+      margin-top: 8px;
+      @include pc {
+        flex-basis: 80%;
+        margin-top: 0;
+      }
+    }
+  }
+
+  &-prevNext__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+
+    @include pc {
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      margin-top: 80px;
+    }
+  }
+
+  &-prevNext__image {
+    margin: 0 12px 0;
+    transform: initial;
+
+    &--deco {
+      transform: scale(-1, 1);
+      margin: 0 12px 0 0;
+    }
+  }
+  &__prev {
+    margin-right: 0px;
+    display: flex;
+    flex-direction: row-reverse;
+
+    @include pc {
+      margin-left: 32px;
+      width: 75%;
+    }
+  }
+  &__next {
+    margin-left: 0;
+    display: flex;
+
+    @include pc {
+      margin-right: 32px;
+      width: 75%;
+    }
+  }
+
+  .BUTTON {
+    width: 100%;
+    max-width: initial;
+    &__wrapper {
+      width: 100%;
+      margin: 32px 0;
+
+      @include pc {
+        width: 75%;
+        margin: initial;
+      }
+    }
+
+    // &::after {
+    //   position: initial;
+    // }
+
+    &.single__next {
+      display: flex;
+      flex-direction: row-reverse;
+      &::after {
+        left: 12px;
+        transition: 0s;
+        transform: scale(-1, 1) translateY(-50%);
+        margin-right: 16px;
+      }
+    }
+
+    &.single__prev {
+      flex-direction: row;
+
+      &::after {
+        right: 12px;
+      }
+    }
+
+    &--back {
+      &::after {
+        content: none;
+      }
+    }
+  }
+}

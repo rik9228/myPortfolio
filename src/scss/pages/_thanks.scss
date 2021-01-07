@@ -1,0 +1,134 @@
+.thanks {
+  .TITLE {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    &--thanks {
+      font-size: 10.6vw;
+      font-family: "Noto Serif JP", sans-serif;
+      margin-left: 12px;
+
+      &.active {
+        //順番ごとに出現を遅らせる
+        @for $i from 1 through 7 {
+          $time: 0.1s;
+          &:nth-of-type(#{$i}) {
+            animation: scale 0.5s $time * $i ease-in-out backwards;
+          }
+        }
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      @include pc {
+        font-size: 56px;
+      }
+    }
+
+    &::before {
+      content: none;
+    }
+  }
+
+  &__text {
+    font-size: $fz-14;
+    font-weight: 300;
+    line-height: 2;
+    margin-top: 56px;
+    text-align: center;
+    transition: 0.4s;
+
+    @include tab {
+      font-size: 16px;
+    }
+  }
+
+  .WRAPPER--min {
+    max-width: 577px;
+    margin: 0 auto;
+  }
+
+  &__listFrame {
+    margin-top: 56px;
+
+    & li {
+      &:not(:first-of-type) {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  &__link {
+    width: 100%;
+    min-height: 55px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-main;
+    color: $color-white;
+    font-size: $fz-18;
+    transition: 0.4s;
+
+    @include tab {
+      font-size: 18px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+    }
+
+    &--twitter {
+      &::before {
+        background: url(#{$imgDir}twitter.svg) center / contain no-repeat;
+      }
+    }
+
+    &--instagram {
+      &::before {
+        background: url(#{$imgDir}insta.svg) center / contain no-repeat;
+      }
+    }
+
+    &--note {
+      &::before {
+        background: url(#{$imgDir}note.svg) center / contain no-repeat;
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.cls-1,
+.cls-2,
+.cls-3,
+.cls-4,
+.cls-5 {
+  fill: none;
+  stroke: #fda14b;
+}
+.cls-1,
+.cls-3,
+.cls-5 {
+  stroke-linecap: round;
+}
+.cls-1,
+.cls-4 {
+  stroke-miterlimit: 10;
+}
+.cls-2,
+.cls-3 {
+  stroke-linejoin: round;
+}
+.cls-5 {
+  stroke-linejoin: bevel;
+}

@@ -1,0 +1,652 @@
+// about
+
+.about {
+  &__wrapper {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    @include fadeIn();
+
+    @include pc {
+      flex-direction: row;
+      margin-top: 120px;
+    }
+
+    // &::before {
+    //   content: "";
+    //   width: 100%;
+    //   display: block;
+    //   height: 54.7vw;
+    //   background: url(#{$imgDir}profile.jpg) center / 120% no-repeat;
+
+    //   @include pc {
+    //     width: 595px;
+    //     height: 415px;
+    //   }
+    // }
+  }
+
+  &__image {
+    position: relative;
+    max-width: 595px;
+  }
+
+  &__sign {
+    @include position(abs, n, n, 10%, 55%);
+    transform: rotate(-15deg);
+    width: 40%;
+  }
+
+  &__card {
+    @include tab {
+      width: 100%;
+    }
+
+    @include pc {
+      width: initial;
+      margin-right: 92px;
+    }
+  }
+
+  &__name {
+    font-size: 6.4vw;
+    margin-top: 40px;
+    font-weight: 400;
+
+    @include tab {
+      font-size: 28px;
+    }
+
+    &::after {
+      content: "Morishita Riku";
+      margin-left: 14px;
+      color: $color-accent;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      font-size: $fz-14;
+
+      @include tab {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__job {
+    font-size: $fz-14;
+    margin: 12px 0 0 0;
+    @include tab {
+      font-size: 18px;
+    }
+  }
+
+  &__term,
+  &__description {
+    font-size: $fz-14;
+    @include tab {
+      font-size: 16px;
+    }
+  }
+
+  &__list {
+    margin-top: 24px;
+  }
+
+  &__term {
+    font-weight: 800;
+    flex-basis: 25%;
+    display: flex;
+    justify-content: space-between;
+
+    &::after {
+      content: attr(data-content);
+    }
+
+    @include tab {
+      flex-basis: 12%;
+    }
+
+    @include pc {
+      flex-basis: 30%;
+    }
+  }
+
+  &__description {
+    font-weight: 300;
+
+    &--deco {
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    &--deco {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+// aboutここまで
+
+// character
+.character {
+  padding: 160px 0 0 0;
+  @include pc {
+    padding: 288px 0 0 0;
+  }
+
+  &__wrapper {
+    margin-top: 56px;
+    @include fadeIn();
+
+    @include pc {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 64px;
+    }
+  }
+
+  &__card {
+    @include pc {
+      max-width: 275px;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: $fz-16;
+    position: relative;
+    white-space: nowrap;
+
+    @include tab {
+      font-size: 18px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      height: 150px;
+      max-width: 275px;
+      width: 100%;
+      margin: 0 auto 40px;
+
+      @include pc {
+        max-width: 140px;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      @include position(abs, -12px, n, n, 0);
+      width: 16.5vw;
+      max-width: 80px;
+      height: 16.5vw;
+      max-height: 80px;
+
+      @include pc {
+        width: 62px;
+        height: 62px;
+      }
+    }
+
+    &--talk {
+      &::before {
+        background: url(#{$imgDir}talk.svg) center / contain no-repeat;
+        @include pc {
+          background-size: 100%;
+        }
+      }
+
+      // 01
+      &::after {
+        background: url(#{$imgDir}01.svg) center / contain no-repeat;
+      }
+    }
+
+    &--up {
+      &::before {
+        background: url(#{$imgDir}up.svg) center / contain no-repeat;
+        @include pc {
+          background-size: 100%;
+        }
+      }
+
+      // 02
+      &::after {
+        background: url(#{$imgDir}02.svg) center / contain no-repeat;
+      }
+    }
+
+    &--activities {
+      &::before {
+        background: url(#{$imgDir}activities.svg) center / contain no-repeat;
+        @include pc {
+          background-size: 145%;
+        }
+      }
+
+      // 03
+      &::after {
+        background: url(#{$imgDir}03.svg) center / contain no-repeat;
+      }
+    }
+
+    &--up,
+    &--activities {
+      margin-top: 56px;
+
+      @include pc {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__text {
+    font-size: $fz-14;
+    font-weight: 300;
+    line-height: 2;
+    margin-top: 16px;
+
+    @include tab {
+      font-size: 16px;
+      line-height: 2;
+    }
+  }
+}
+// character ここまで
+
+// career
+.career {
+  padding: 160px 0 0 0;
+
+  @include pc {
+    padding: 288px 0 0 0;
+  }
+
+  &__wrapper {
+    margin-top: 56px;
+    position: relative;
+    @include fadeIn();
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 6px;
+      display: block;
+      width: 3px;
+      height: 100%;
+      z-index: -5;
+      background-color: $color-accent;
+      opacity: 0.25;
+      animation: career 8s ease-in-out;
+
+      @include pc {
+        left: 100px;
+        opacity: 1;
+      }
+    }
+
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   bottom: 10px;
+    //   left: -3px;
+    //   display: block;
+    //   width: 20px;
+    //   height: 20px;
+    //   z-index: -5;
+    //   border-radius: 100%;
+    //   background-color: $color-accent;
+    //   opacity: 0.25;
+    //   transition-delay: 7.5s;
+
+    //   @include pc {
+    //     width: 35px;
+    //     height: 35px;
+    //     left: 83px;
+    //     opacity: 1;
+    //   }
+    // }
+
+    @include pc {
+      margin-top: 64px;
+    }
+  }
+
+  &__card {
+    &:not(:first-of-type) {
+      margin-top: 80px;
+
+      @include pc {
+        margin-top: 120px;
+      }
+    }
+  }
+  &__time {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-main;
+    color: $color-white;
+    font-weight: 300;
+    font-size: 12px;
+    margin-right: 12px;
+    max-width: 88px;
+    width: 100%;
+
+    @include pc {
+      margin-right: 40px;
+      max-width: 200px;
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+
+  &__title {
+    font-size: $fz-14;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-weight: 500;
+
+    @include tab {
+      font-size: 22px;
+    }
+  }
+
+  &__text {
+    margin-top: 16px;
+    font-size: $fz-14;
+    font-weight: 300;
+    line-height: 2;
+    width: calc(100% - 18px);
+    margin-left: auto;
+    text-align: justify;
+
+    &--deco {
+      margin-top: 32px;
+    }
+
+    @include tab {
+      font-size: 16px;
+    }
+
+    @include pc {
+      width: calc(100% - 240px);
+    }
+  }
+
+  &__box {
+    @extend .career__text;
+
+    &--deco {
+      margin-top: 8px;
+    }
+  }
+
+  &__listFrame {
+    margin-top: 32px;
+
+    &--deco {
+      margin-top: initial;
+    }
+  }
+
+  &__listItem {
+    &--deco {
+      font-weight: 400;
+    }
+  }
+}
+// career ここまで
+
+// vision
+.vision {
+  padding: 160px 0 0 0;
+
+  &__wrapper {
+    max-width: 525px;
+    margin: 0 auto;
+    @include fadeIn();
+
+    &--deco {
+      &::after {
+        content: "";
+        display: block;
+        margin-top: 80px;
+        width: auto;
+        height: 53.3vw;
+        max-height: 320px;
+        background: url(#{$imgDir}vision.jpg) center / cover no-repeat;
+
+        @include pc {
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+  &__title {
+    font-size: $fz-16;
+    line-height: 1.5;
+    margin-top: 56px;
+    font-weight: 500;
+
+    @include tab {
+      font-size: 20px;
+    }
+    &--deco {
+      font-size: 7.5vw;
+      color: #fff;
+      text-stroke: 1px #000;
+      -webkit-text-stroke: 1px #000;
+
+      @include tab {
+        font-size: 44px;
+      }
+    }
+  }
+
+  &__text {
+    margin-top: 16px;
+    font-size: $fz-14;
+    line-height: 2;
+    font-weight: 300;
+
+    @include tab {
+      font-size: 16px;
+    }
+  }
+}
+// vision ここまで
+
+// photo
+.photos {
+  padding: 160px 0 0 0;
+
+  .TITLE {
+    text-align: center;
+    line-height: 2;
+  }
+
+  @include pc {
+    padding: 288px 0 0 0;
+  }
+
+  &__listFrame {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 32vw);
+    gap: 32px;
+    margin-top: 56px;
+    @include fadeIn();
+
+    @include pc {
+      grid-template: repeat(3, 210px) / repeat(4, 210px);
+      margin-top: 80px;
+      justify-content: space-between;
+    }
+  }
+
+  &__listItem {
+    cursor: pointer;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    & img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .BUTTON__wrapper {
+    margin-top: 80px;
+    @include pc {
+      margin-top: 160px;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 20;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__wrapper {
+    &--first {
+      position: absolute;
+      top: 46.6vh;
+      transform: translate(-50%, -50%);
+      width: 89.9vw;
+      left: 50%;
+
+      @include pc {
+        width: 80%;
+        margin: 0 auto;
+        @include position(abs, 50%, n, n, 50%);
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &--second {
+      position: fixed;
+      top: 76.8vh;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      width: 90%;
+      justify-content: space-between;
+
+      @include pc {
+        width: 65%;
+        top: 50%;
+      }
+    }
+  }
+
+  &__image {
+    @include pc {
+      max-width: 800px;
+      width: 41.7vw;
+      max-height: 600px;
+      height: 31.3vw;
+      object-fit: cover;
+    }
+  }
+
+  &__caption {
+    text-align: center;
+    color: $color-white;
+    font-size: $fz-16;
+    margin-bottom: 2px;
+    line-height: 1.5;
+
+    @include pc {
+      transform: translateY(18.5vw);
+      font-size: 16px;
+      font-weight: 300;
+    }
+  }
+
+  &__prev {
+    // transition: 0.4s;
+    &::before {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 32px;
+      border-left: 1px solid $color-white;
+      border-top: 1px solid $color-white;
+      transform: rotate(-45deg);
+      cursor: pointer;
+
+      @include pc {
+        width: 56px;
+        height: 56px;
+      }
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__next {
+    &::before {
+      @extend .modal__prev;
+      transform: rotate(135deg);
+    }
+  }
+
+  &__close {
+    position: fixed;
+    top: 32px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $color-white;
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+// photo ここまで
